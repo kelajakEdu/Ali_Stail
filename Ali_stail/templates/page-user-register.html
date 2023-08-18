@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+		{% load static %}
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="description" content="Bootstrap e-commerce html template similar to Alibaba">
+<meta name="keywords" content="Online template, shop, theme, template, html, css, bootstrap 4">
+
+<title>Website title - bootstrap alistyle html template</title>
+
+<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+
+<!-- Bootstrap4 files-->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- Font awesome 5 -->
+<link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+<!-- custom style -->
+<link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
+
+<!-- custom javascript -->
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+
+</head>
+
+
+<body>
+
+<!-- REMOVE FOLLOWING LINK -->
+<a href="http://bootstrap-ecommerce.com/page-themes.html" class="btn btn-dark rounded-pill" style="font-size:13px; z-index:100; position: fixed; bottom:10px; right:10px;">Download theme</a>
+<!-- REMOVE  //END -->
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+
+<!-- ============================ COMPONENT REGISTER   ================================= -->
+	<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+      <article class="card-body">
+		<header class="mb-4"><h4 class="card-title">Ro'yxatdan o'tish</h4></header>
+		<form method="post"> {% csrf_token %}
+				<div class="form-row">
+					<div class="col form-group">
+						<label>Ism</label>
+					  	<input type="text" class="form-control" name="fn" placeholder="">
+					</div> <!-- form-group end.// -->
+					<div class="col form-group">
+						<label>Familya</label>
+					  	<input type="text" class="form-control" name="ln" placeholder="">
+					</div> <!-- form-group end.// -->
+				</div> <!-- form-row end.// -->
+				<div class="form-group">
+					<label>Elektron pochta</label>
+					<input type="email" class="form-control" name="email" placeholder="">
+					<small class="form-text text-muted">E-pochtangizni hech kim bilan baham ko'rmaymiz.</small>
+				</div> <!-- form-group end.// -->
+				<div class="form-group">
+					<label class="custom-control custom-radio custom-control-inline">
+					 	<select class="form-control" name="jins">
+							<option value="" disabled selected >Jinsingiz</option>
+							<option value="erkak" >Erkak</option>
+							<option value="ayol" >Ayol</option>
+						</select>
+					</label>
+				</div> <!-- form-group end.// -->
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label>Shahar</label>
+					  <input type="text" class="form-control" name="shahar">
+					</div> <!-- form-group end.// -->
+					<div class="form-group col-md-6">
+					  <label>Viloyat</label>
+					  <select id="inputState" class="form-control" name="viloyat">
+					    <option selected disabled> Tanlang...</option>
+					      <option value="Andijon">Andijon</option>
+					      <option value="Namangan">Namangan</option>
+					      <option value="Farg'ona">Farg'ona</option>
+					      <option value="Toshkent">Toshkent</option>
+					      <option value="Samarqand">Samarqand</option>
+					  </select>
+					</div> <!-- form-group end.// -->
+				</div> <!-- form-row.// -->
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Parol yarating </label>
+					    <input class="form-control" type="password" name="p">
+					</div> <!-- form-group end.// --> 
+					<div class="form-group col-md-6">
+						<label>Parolni qayta kiriting</label>
+					    <input class="form-control" type="password" name="pt">
+					</div> <!-- form-group end.// -->  
+				</div>
+			    <div class="form-group">
+			        <button type="submit" class="btn btn-primary btn-block"> Ro'yxatdan o'tish  </button>
+			    </div> <!-- form-group// -->      
+			    <div class="form-group"> 
+		            <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked=""> <div class="custom-control-label"> Men  <a href="#">foydalanish shartlari</a>ga roziman  </div> </label>
+		        </div> <!-- form-group end.// -->           
+			</form>
+		</article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    <p class="text-center mt-4">Allaqachon ro'yxatdan o'tganmisiz <a href="/user/login/">Tizimga kirish</a></p>
+    <br><br>
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+
+</body>
+</html>
