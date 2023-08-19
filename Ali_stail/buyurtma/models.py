@@ -36,3 +36,4 @@ class Buyurtma(models.Model):
     #         s+= savat.umumiy
     #     self.summa = s
     #     super(Buyurtma, self).save(*args, **kwargs)
+

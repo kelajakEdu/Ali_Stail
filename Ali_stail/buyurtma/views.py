@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from .models import Savat
-from .models import Savat
+from .models import *
 from asosiy.models import Mahsulot
 from asosiy.models import Tanlangan
 from userapp.models import Profil
@@ -44,7 +44,10 @@ class MiqdorKamaytir(View):
 
 class BuyurtmaView(View):
     def get(self, request):
-        return render(request, 'page-profile-orders.html')
+        content={
+            'buyurtmalar': Buyurtma.objects.filter(profil__user=request.user)
+        }
+        return render(request, 'page-profile-orders.html', content)
 
 class savatRemoveView(View):
     def get(self, request, pk):
@@ -60,3 +63,21 @@ class AddtanlanganView(View):
                 profil = Profil.objects.get(user=request.user)
             )
         return redirect('savat')
+class BuyurtmaQoshView(View):
+    def get(self, request):
+        savatlari = Savat.objects.filter(profil__user = request.user, arxivda=False)
+        buyurtma = Buyurtma.objects.create(
+            manzil = "Fargona vil. Yozyovon shaxarchasi Mustaqillik ko'chasi",
+            zipcode = '3629562',
+            profil = Profil.objects.get(user = request.user),
+            summa = 120000
+        )
+        s=0
+        for savat in savatlari:
+            buyurtma.savatlar.add(savat)
+            s+= savat.umumiy
+            savat.arxivda=True
+            savat.save()
+        buyurtma.summa = s
+        buyurtma.save()
+        return redirect("/buyurtma/buyurtma/")
